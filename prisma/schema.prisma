@@ -505,7 +505,7 @@ model applications {
   id                             String                      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   applicant_user_id              String?                     @db.Uuid
   full_name                      String
-  email                           String
+  email                          String
   phone                          String?
   job_id                         String                      @db.Uuid
   stage                          String                      @default("Applied")
@@ -597,7 +597,6 @@ model applicant_pds {
   last_name                       String?
   first_name                      String?
   middle_name                     String?
-  suffix                          String?
   nickname                        String?
   present_address                 Json?
   provincial_address              Json?
@@ -605,7 +604,7 @@ model applicant_pds {
   travel_time_minutes             String?
   residence_number                String?
   cellphone                       String?
-  email                            String?
+  email                           String?
   religion                        String?
   desired_salary                  String?
   date_of_birth                   DateTime?    @db.Date
@@ -680,6 +679,7 @@ model applicant_pds {
   location_sketch_file_path       String?
   location_sketch_file_name       String?
   location_sketch_file_size_label String?
+  suffix                          String?
   applications                    applications @relation(fields: [application_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@schema("public")
@@ -777,6 +777,7 @@ model hr_profiles {
   full_name  String
   role       String
   created_at DateTime? @default(now()) @db.Timestamptz(6)
+  status     String    @default("active")
   users      users     @relation(fields: [id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@schema("public")
@@ -794,6 +795,7 @@ model employees {
   probation_start_date DateTime?    @db.Date
   created_at           DateTime     @default(now()) @db.Timestamptz(6)
   probation_end_date   DateTime?    @default(dbgenerated("((probation_start_date + '6 mons'::interval))::date")) @db.Date
+  employment_type      String?
   applications         applications @relation(fields: [application_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@schema("public")
