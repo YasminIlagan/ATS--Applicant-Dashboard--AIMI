@@ -26,24 +26,8 @@ This document covers the **applicant-facing portal**.
 - Onboarding details (start date, address, requirements to bring)
 - Notifications
 
-### HR / Admin Portal
-
-- Management of job postings and applicants
-- Review of applications and interview scheduling
-- Progression of applicants through hiring stages
-- Management of employee records
-
 ---
 
-## Hiring Pipeline
-
-The applicant progresses through the following stages:
-
-Application → Background Check → Job Offer → Requirements → Onboarding → Hired
-
-Each stage unlocks only once the previous stage has been completed. For example, the Requirements stage is not accessible until the applicant has responded to the job offer.
-
----
 
 ## Technology Stack
 
